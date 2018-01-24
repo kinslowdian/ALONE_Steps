@@ -25,3 +25,48 @@ html, body
 
 	position: relative;
 }
+
+.steps
+{
+	width: 100%;
+	height: 50%;
+	position: absolute;
+	left: 0; bottom: 0;
+	background: #000a00;
+}
+
+.step
+{
+	height: 50px;
+	background: #000a00;
+	position: absolute;
+	right: 0;
+	top:0;
+}
+
+.step0
+{
+	width: 1000px;
+	transform: translateY(-50px);
+}
+
+.step1
+{
+	width: 890px;
+	transform: translateY(-100px);
+}
+
+.step2
+{
+	width: 780px;
+	transform: translateY(-150px);
+}
+
+.step3
+{
+	width: 670px;
+	transform: translateY(-200px);
+}
+
+
+

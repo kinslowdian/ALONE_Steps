@@ -33,6 +33,7 @@
 	overflow: hidden;
 
 	background: #000;
+	background: #fe4a49;
 }
 
 .ui
@@ -228,7 +229,7 @@
 .viewer
 {
 	width: 2000px;
-	height: 1333px;
+	height: 1330px;
 
 	position: absolute;
 
@@ -244,13 +245,15 @@
 	left: 0; top: 0;
 	
 	background: #F45866;
+	background: #feecb9;
 	
-	outline: 1px solid #000;
+	outline: 1px solid #fe4a49;
 }
 
 .section
 {
 	position: absolute;
+	opacity: 0.6;
 }
 
 .section p
@@ -271,8 +274,10 @@
 
 .player
 {
-	width: 112px;
-	height: 307px;
+	width: 176px;
+	height: 400px;
+	width: 110px;
+	height: 250px;
 	position: absolute;
 /* 	background: #ff0033; */
 	
@@ -281,7 +286,7 @@
 
 .gfx-player
 {
-	background-image: url(../img/char.png);
+	background-image: url(../img/sadly.svg);
 	background-repeat: no-repeat;
 	background-position: center center;
 	background-size: 100%;
@@ -295,6 +300,7 @@
 	position: absolute;
 	
 	box-shadow: inset 0 0 150px rgba(0, 0, 0, 1);
+	box-shadow: inset 0 0 150px #fe4a49;
 }
 
 .edge
