@@ -73,10 +73,16 @@ class Camera
 	// OUT OF SCOPE
 	viewerTransitionEvent(event)
 	{
+		trace("!!!");
+		trace(this.viewerTransitionEvent);
+		trace(event);
+
 		event.target.removeEventListener("transitionend", this.viewerTransitionEvent, false);
 
 		// LINK BACK VALUES
 		camera_newFocus();
+
+		trace(camera_newFocus);
 	}
 
 	viewerUpdateValues()
@@ -165,7 +171,7 @@ function section_init()
 	let s3 = new Section(displayList.section3, 110, 250, 1110, 315, "#631A86");
 	let s4 = new Section(displayList.section4, 110, 250, 1220, 265, "#631A86");
 	let s5 = new Section(displayList.section5, 110, 250, 1330, 215, "#631A86");
-	let s6 = new Section(displayList.section5, 110, 250, 1890, 215, "#631A86");
+	let s6 = new Section(displayList.section6, 110, 250, 1890, 215, "#631A86");
 
 	s0.placement();
 	s1.placement();
@@ -275,39 +281,60 @@ function ui_required()
 	if(sectionFocus === 0)
 	{
 		ui_activate(ui.R);
-		ui_activate(ui.D);
 
 		hint_activate(ui.HINT_R);
-		hint_activate(ui.HINT_D);
 	}
 	
 	else if(sectionFocus === 1)
 	{
+		ui_activate(ui.R);
 		ui_activate(ui.L);
-		ui_activate(ui.U);
 
-		hint_activate(ui.HINT_L);
-		hint_activate(ui.HINT_U);	
+		hint_activate(ui.HINT_R);
+		hint_activate(ui.HINT_L);	
 	}
 	
 	else if(sectionFocus === 2)
 	{
 		ui_activate(ui.R);
-		ui_activate(ui.U);
+		ui_activate(ui.L);
 
 		hint_activate(ui.HINT_R);
-		hint_activate(ui.HINT_U);	
+		hint_activate(ui.HINT_L);	
 	}
 	
 	else if(sectionFocus === 3)
 	{
-		ui_activate(ui.L);
 		ui_activate(ui.R);
-		ui_activate(ui.D);
+		ui_activate(ui.L);
 
-		hint_activate(ui.HINT_L);
 		hint_activate(ui.HINT_R);
-		hint_activate(ui.HINT_D);	
+		hint_activate(ui.HINT_L);	
+	}
+
+	else if(sectionFocus === 4)
+	{
+		ui_activate(ui.R);
+		ui_activate(ui.L);
+
+		hint_activate(ui.HINT_R);
+		hint_activate(ui.HINT_L);	
+	}
+
+	else if(sectionFocus === 5)
+	{
+		ui_activate(ui.R);
+		ui_activate(ui.L);
+
+		hint_activate(ui.HINT_R);
+		hint_activate(ui.HINT_L);	
+	}
+
+	else if(sectionFocus === 6)
+	{
+		ui_activate(ui.L);
+
+		hint_activate(ui.HINT_L);	
 	}
 
 	control_on();
@@ -323,13 +350,7 @@ function ui_path(direction, keyInput)
 		{
 			if(direction === "R")
 			{
-				section_request(3);
-				activated = true;
-			}
-			
-			else if(direction === "D")
-			{
-				section_request(2);
+				section_request(1);
 				activated = true;
 			}
 			
@@ -338,9 +359,43 @@ function ui_path(direction, keyInput)
 		
 		case 1:
 		{
-			if(direction === "U")
+			if(direction === "R")
+			{
+				section_request(2);
+				activated = true;
+			}
+			
+			else if(direction === "L")
+			{
+				section_request(0);
+				activated = true;
+			}
+			
+			break;
+		}
+		
+		case 2:
+		{
+			if(direction === "R")
 			{
 				section_request(3);
+				activated = true;
+			}
+			
+			else if(direction === "L")
+			{
+				section_request(1);
+				activated = true;
+			}
+			
+			break;
+		}
+		
+		case 3:
+		{
+			if(direction === "R")
+			{
+				section_request(4);
 				activated = true;
 			}
 			
@@ -352,41 +407,46 @@ function ui_path(direction, keyInput)
 			
 			break;
 		}
-		
-		case 2:
+
+		case 4:
 		{
-			if(direction === "U")
+			if(direction === "R")
+			{
+				section_request(5);
+				activated = true;
+			}
+			
+			else if(direction === "L")
 			{
 				section_request(3);
 				activated = true;
 			}
 			
-			else if(direction === "R")
+			break;
+		}
+
+		case 5:
+		{
+			if(direction === "R")
 			{
-				section_request(1);
+				section_request(6);
+				activated = true;
+			}
+			
+			else if(direction === "L")
+			{
+				section_request(4);
 				activated = true;
 			}
 			
 			break;
 		}
-		
-		case 3:
+
+		case 6:
 		{
 			if(direction === "L")
 			{
-				section_request(0);
-				activated = true;
-			}
-			
-			else if(direction === "R")
-			{
-				section_request(1);
-				activated = true;
-			}
-			
-			else if(direction === "D")
-			{
-				section_request(2);
+				section_request(5);
 				activated = true;
 			}
 			
