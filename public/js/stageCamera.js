@@ -112,9 +112,10 @@ class Section
 
 class Player
 {
-	constructor(htmlAttach, w, h, x, y)
+	constructor(htmlAttach, htmlAttachInner, w, h, x, y)
 	{
 		this.htmlAttach = htmlAttach;
+		this.htmlAttachInner = htmlAttachInner;
 		this.w = w;
 		this.h = h;
 		this.x = x;
@@ -127,6 +128,19 @@ class Player
 		let y = target.y + (target.h * 0.5);
 		
 		this.htmlAttach.setAttribute("style", "transform: translate(calc(" + x + "px - " + (this.w * 0.5) + "px), calc(" + y + "px - " + (this.h * 0.5) + "px));");	
+	}
+
+	playerDirection(dir)
+	{
+		if(dir == "F")
+		{
+			this.htmlAttachInner.classList.remove("player-back");
+		}
+
+		else if(dir == "B")
+		{
+			this.htmlAttachInner.classList.add("player-back");
+		}
 	}
 }
 
@@ -204,7 +218,7 @@ function player_init()
 {
 	trace(displayList.player);
 
-	player = new Player(displayList.player, 110, 250, 0, 0);
+	player = new Player(displayList.player, displayList.playerInner, 110, 250, 0, 0);
 	
 	CAM.connectPlayer(player);
 }

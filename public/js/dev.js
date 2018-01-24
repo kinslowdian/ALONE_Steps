@@ -21,6 +21,7 @@ function project_setup()
 	displayList.viewer = document.querySelector(".viewer");
 	displayList.layer0 = document.querySelector(".layer0");
 	displayList.player = document.querySelector(".player");
+	displayList.playerInner = document.querySelector(".player .player-inner");
 
 	section_init();
 	camera_init();

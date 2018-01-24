@@ -284,6 +284,25 @@
 	transition: 1600ms ease-in-out;
 }
 
+.player .player-inner
+{
+	width: inherit;
+	height: inherit;
+	position: absolute;
+
+	transform-origin: 50% 0%;
+}
+
+.player-forw
+{
+	transform: scaleX(1);
+}
+
+.player-back
+{
+	transform: scaleX(-1);
+}
+
 .gfx-player
 {
 	background-image: url(../img/sadly.svg);
