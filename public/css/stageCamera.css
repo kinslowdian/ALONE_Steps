@@ -290,7 +290,52 @@
 	height: inherit;
 	position: absolute;
 
+	left: 0; top: 0;
+
 	transform-origin: 50% 0%;
+}
+
+.player .player-layer
+{
+	width: inherit;
+	height: inherit;
+	position: absolute;
+
+	left: 0; top: 0;
+
+	transform-origin: 50% 0%;	
+}
+
+.gfx-player
+{
+	background-image: url(../img/sadly.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100%;
+}
+
+.gfx-player-legL
+{
+	background-image: url(../img/sadly_LegL.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100%;
+}
+
+.gfx-player-legR
+{
+	background-image: url(../img/sadly_LegR.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100%;
+}
+
+.gfx-player-body
+{
+	background-image: url(../img/sadly_Body.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100%;
 }
 
 .player-forw
@@ -303,22 +348,9 @@
 	transform: scaleX(-1);
 }
 
-.gfx-player
-{
-	background-image: url(../img/sadly.svg);
-	background-repeat: no-repeat;
-	background-position: center center;
-	background-size: 100%;
-}
-
 .player-walk
 {
 	animation: playerWalkFrames 200ms ease-in-out infinite;
-}
-
-.player-Hold
-{
-	animation-play-state: paused;
 }
 
 @keyframes playerWalkFrames
@@ -326,6 +358,35 @@
 	0%		{transform: translateY(0px);}
 	50%		{transform: translateY(10px);}
 	100%	{transform: translateY(0px);}
+}
+
+.player-walk-legL
+{
+	animation: playerWalkLegLFrames 100ms ease-in-out infinite;
+}
+
+@keyframes playerWalkLegLFrames
+{
+	0%		{transform: translateY(-10px);}
+	50%		{transform: translateY(0px);}
+	100%	{transform: translateY(-10px);}
+}
+
+.player-walk-legR
+{
+	animation: playerWalkLegRFrames 100ms ease-in-out infinite;
+}
+
+@keyframes playerWalkLegRFrames
+{
+	0%		{transform: translateY(0px);}
+	50%		{transform: translateY(-10px);}
+	100%	{transform: translateY(0px);}
+}
+
+.player-Hold
+{
+	animation-play-state: paused;
 }
 
 .blend
