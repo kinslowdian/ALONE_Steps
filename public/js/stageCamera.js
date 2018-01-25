@@ -219,6 +219,7 @@ function player_init()
 	trace(displayList.player);
 
 	player = new Player(displayList.player, displayList.playerInner, 110, 250, 0, 0);
+	player.playerDirection("F");
 	
 	CAM.connectPlayer(player);
 }
@@ -366,6 +367,7 @@ function ui_path(direction, keyInput)
 			{
 				section_request(1);
 				activated = true;
+				player.playerDirection("F");
 			}
 			
 			break;
@@ -377,12 +379,14 @@ function ui_path(direction, keyInput)
 			{
 				section_request(2);
 				activated = true;
+				player.playerDirection("F");
 			}
 			
 			else if(direction === "L")
 			{
 				section_request(0);
 				activated = true;
+				player.playerDirection("B");
 			}
 			
 			break;
@@ -394,12 +398,14 @@ function ui_path(direction, keyInput)
 			{
 				section_request(3);
 				activated = true;
+				player.playerDirection("F");
 			}
 			
 			else if(direction === "L")
 			{
 				section_request(1);
 				activated = true;
+				player.playerDirection("B");
 			}
 			
 			break;
@@ -411,12 +417,14 @@ function ui_path(direction, keyInput)
 			{
 				section_request(4);
 				activated = true;
+				player.playerDirection("F");
 			}
 			
 			else if(direction === "L")
 			{
 				section_request(2);
 				activated = true;
+				player.playerDirection("B");
 			}
 			
 			break;
@@ -428,12 +436,14 @@ function ui_path(direction, keyInput)
 			{
 				section_request(5);
 				activated = true;
+				player.playerDirection("F");
 			}
 			
 			else if(direction === "L")
 			{
 				section_request(3);
 				activated = true;
+				player.playerDirection("B");
 			}
 			
 			break;
@@ -445,12 +455,14 @@ function ui_path(direction, keyInput)
 			{
 				section_request(6);
 				activated = true;
+				player.playerDirection("F");
 			}
 			
 			else if(direction === "L")
 			{
 				section_request(4);
 				activated = true;
+				player.playerDirection("B");
 			}
 			
 			break;
@@ -462,6 +474,7 @@ function ui_path(direction, keyInput)
 			{
 				section_request(5);
 				activated = true;
+				player.playerDirection("F");
 			}
 			
 			break;
