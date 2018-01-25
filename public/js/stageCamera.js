@@ -180,28 +180,28 @@ function section_init()
 	displayList.section6 = document.querySelector(".section6");
 	
 	let s0 = new Section(displayList.section0, 110, 250, 100, 415, "#333");
-	let s1 = new Section(displayList.section1, 110, 250, 890, 415, "#F49390");
-	let s2 = new Section(displayList.section2, 110, 250, 1000, 365, "#C45AB3");
-	let s3 = new Section(displayList.section3, 110, 250, 1110, 315, "#631A86");
-	let s4 = new Section(displayList.section4, 110, 250, 1220, 265, "#631A86");
-	let s5 = new Section(displayList.section5, 110, 250, 1330, 215, "#631A86");
-	let s6 = new Section(displayList.section6, 110, 250, 1890, 215, "#631A86");
+	let s1 = new Section(displayList.section1, 110, 250, 945, 415, "#F49390");
+	let s2 = new Section(displayList.section2, 110, 250, 1385, 215, "#C45AB3");
+	let s3 = new Section(displayList.section3, 110, 250, 1890, 215, "#631A86");
+	// let s4 = new Section(displayList.section4, 110, 250, 1220, 265, "#631A86");
+	// let s5 = new Section(displayList.section5, 110, 250, 1330, 215, "#631A86");
+	// let s6 = new Section(displayList.section6, 110, 250, 1890, 215, "#631A86");
 
 	s0.placement();
 	s1.placement();
 	s2.placement();
 	s3.placement();
-	s4.placement();
-	s5.placement();
-	s6.placement();
+	// s4.placement();
+	// s5.placement();
+	// s6.placement();
 
 	sectionsARR.push(s0);
 	sectionsARR.push(s1);
 	sectionsARR.push(s2);
 	sectionsARR.push(s3);
-	sectionsARR.push(s4);
-	sectionsARR.push(s5);
-	sectionsARR.push(s6);
+	// sectionsARR.push(s4);
+	// sectionsARR.push(s5);
+	// sectionsARR.push(s6);
 }
 
 function section_request(num)
@@ -320,33 +320,6 @@ function ui_required()
 	
 	else if(sectionFocus === 3)
 	{
-		ui_activate(ui.R);
-		ui_activate(ui.L);
-
-		hint_activate(ui.HINT_R);
-		hint_activate(ui.HINT_L);	
-	}
-
-	else if(sectionFocus === 4)
-	{
-		ui_activate(ui.R);
-		ui_activate(ui.L);
-
-		hint_activate(ui.HINT_R);
-		hint_activate(ui.HINT_L);	
-	}
-
-	else if(sectionFocus === 5)
-	{
-		ui_activate(ui.R);
-		ui_activate(ui.L);
-
-		hint_activate(ui.HINT_R);
-		hint_activate(ui.HINT_L);	
-	}
-
-	else if(sectionFocus === 6)
-	{
 		ui_activate(ui.L);
 
 		hint_activate(ui.HINT_L);	
@@ -412,69 +385,12 @@ function ui_path(direction, keyInput)
 		}
 		
 		case 3:
-		{
-			if(direction === "R")
-			{
-				section_request(4);
-				activated = true;
-				player.playerDirection("F");
-			}
-			
-			else if(direction === "L")
+		{	
+			if(direction === "L")
 			{
 				section_request(2);
 				activated = true;
 				player.playerDirection("B");
-			}
-			
-			break;
-		}
-
-		case 4:
-		{
-			if(direction === "R")
-			{
-				section_request(5);
-				activated = true;
-				player.playerDirection("F");
-			}
-			
-			else if(direction === "L")
-			{
-				section_request(3);
-				activated = true;
-				player.playerDirection("B");
-			}
-			
-			break;
-		}
-
-		case 5:
-		{
-			if(direction === "R")
-			{
-				section_request(6);
-				activated = true;
-				player.playerDirection("F");
-			}
-			
-			else if(direction === "L")
-			{
-				section_request(4);
-				activated = true;
-				player.playerDirection("B");
-			}
-			
-			break;
-		}
-
-		case 6:
-		{
-			if(direction === "L")
-			{
-				section_request(5);
-				activated = true;
-				player.playerDirection("F");
 			}
 			
 			break;
