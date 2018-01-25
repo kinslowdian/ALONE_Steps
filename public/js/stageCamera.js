@@ -122,7 +122,7 @@ class Player
 		this.x = x;
 		this.y = y;
 
-		// this.playerWalk(false);
+		this.playerWalk(false);
 	}
 	
 	playerMoveTo(target)
@@ -151,15 +151,15 @@ class Player
 		if(allow)
 		{
 			// this.htmlAttachBase.classList.remove("player-hold");
-			// this.htmlAttachBase.style.animationPlayState = "running";
-			this.htmlAttachBase.classList.add("player-walk");
+			this.htmlAttachBase.style.animationPlayState = "running";
+			// this.htmlAttachBase.classList.add("player-walk");
 		}
 
 		else
 		{
 			// this.htmlAttachBase.classList.add("player-hold");
-			// this.htmlAttachBase.style.animationPlayState = "paused";
-			this.htmlAttachBase.classList.remove("player-walk");
+			this.htmlAttachBase.style.animationPlayState = "paused";
+			// this.htmlAttachBase.classList.remove("player-walk");
 		}
 	}
 }
