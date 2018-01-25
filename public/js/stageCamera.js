@@ -195,9 +195,9 @@ function section_init()
 	displayList.section1 = document.querySelector(".section1");
 	displayList.section2 = document.querySelector(".section2");
 	displayList.section3 = document.querySelector(".section3");
-	displayList.section4 = document.querySelector(".section4");
-	displayList.section5 = document.querySelector(".section5");
-	displayList.section6 = document.querySelector(".section6");
+	// displayList.section4 = document.querySelector(".section4");
+	// displayList.section5 = document.querySelector(".section5");
+	// displayList.section6 = document.querySelector(".section6");
 	
 	let s0 = new Section(displayList.section0, 110, 250, 100, 415, "#333");
 	let s1 = new Section(displayList.section1, 110, 250, 945, 415, "#F49390");
