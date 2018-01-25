@@ -311,6 +311,23 @@
 	background-size: 100%;
 }
 
+.player-walk
+{
+	animation: playerWalkFrames 200ms ease-in-out infinite;
+}
+
+.player-Hold
+{
+	animation-play-state: paused;
+}
+
+@keyframes playerWalkFrames
+{
+	0%		{transform: translateY(0px);}
+	50%		{transform: translateY(10px);}
+	100%	{transform: translateY(0px);}
+}
+
 .blend
 {
 	width: inherit;

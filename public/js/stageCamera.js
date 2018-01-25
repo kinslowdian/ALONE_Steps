@@ -112,14 +112,17 @@ class Section
 
 class Player
 {
-	constructor(htmlAttach, htmlAttachInner, w, h, x, y)
+	constructor(htmlAttach, htmlAttachInner, htmlAttachBase, w, h, x, y)
 	{
 		this.htmlAttach = htmlAttach;
 		this.htmlAttachInner = htmlAttachInner;
+		this.htmlAttachBase = htmlAttachBase;
 		this.w = w;
 		this.h = h;
 		this.x = x;
 		this.y = y;
+
+		// this.playerWalk(false);
 	}
 	
 	playerMoveTo(target)
@@ -140,6 +143,23 @@ class Player
 		else if(dir == "B")
 		{
 			this.htmlAttachInner.classList.add("player-back");
+		}
+	}
+
+	playerWalk(allow)
+	{
+		if(allow)
+		{
+			// this.htmlAttachBase.classList.remove("player-hold");
+			// this.htmlAttachBase.style.animationPlayState = "running";
+			this.htmlAttachBase.classList.add("player-walk");
+		}
+
+		else
+		{
+			// this.htmlAttachBase.classList.add("player-hold");
+			// this.htmlAttachBase.style.animationPlayState = "paused";
+			this.htmlAttachBase.classList.remove("player-walk");
 		}
 	}
 }
@@ -218,7 +238,7 @@ function player_init()
 {
 	trace(displayList.player);
 
-	player = new Player(displayList.player, displayList.playerInner, 110, 250, 0, 0);
+	player = new Player(displayList.player, displayList.playerInner, displayList.playerBase, 110, 250, 0, 0);
 	player.playerDirection("F");
 	
 	CAM.connectPlayer(player);
@@ -237,6 +257,8 @@ function camera_init()
 function camera_newFocus()
 {
 	CAM.viewerUpdateValues();
+
+	player.playerWalk(false);
 	
 	ui_required();
 }
@@ -401,6 +423,8 @@ function ui_path(direction, keyInput)
 	{
 		ui_reset();
 		hint_reset();
+
+		player.playerWalk(true);
 	}
 }
 
