@@ -284,7 +284,7 @@
 	transition: 1600ms ease-in-out;
 }
 
-.player .player-inner
+.player .player-inner, .player .player-base
 {
 	width: inherit;
 	height: inherit;
