@@ -73,16 +73,10 @@ class Camera
 	// OUT OF SCOPE
 	viewerTransitionEvent(event)
 	{
-		trace("!!!");
-		trace(this.viewerTransitionEvent);
-		trace(event);
-
 		event.target.removeEventListener("transitionend", this.viewerTransitionEvent, false);
 
 		// LINK BACK VALUES
 		camera_newFocus();
-
-		trace(camera_newFocus);
 	}
 
 	viewerUpdateValues()
@@ -476,9 +470,6 @@ function ui_event(event)
 	let direction; 
 	
 	event.preventDefault();
-	
-	trace(event.type);
-	trace(event);
 	
 	if(event.type === "touchstart")
 	{
