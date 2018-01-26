@@ -175,6 +175,9 @@ var ui;
 
 var player;
 
+var system;
+var level = 0;
+
 function project_ios_fix_init()
 {
 	document.addEventListener("gesturestart", project_ios_fix_event, false);
@@ -315,6 +318,7 @@ function ui_init()
 
 function ui_required()
 {
+	/*
 	if(sectionFocus === 0)
 	{
 		ui_activate(ui.R);
@@ -346,6 +350,9 @@ function ui_required()
 
 		hint_activate(ui.HINT_L);	
 	}
+	*/
+
+	eval(system.data.LEVELS[level].ui_required);
 
 	control_on();
 }
@@ -354,6 +361,7 @@ function ui_path(direction, keyInput)
 {
 	let activated = false;
 
+	/*
 	switch(sectionFocus)
 	{
 		case 0:
@@ -418,6 +426,9 @@ function ui_path(direction, keyInput)
 			break;
 		}
 	}
+	*/
+
+	eval(system.data.LEVELS[level].ui_path);
 
 	if(activated && keyInput)
 	{

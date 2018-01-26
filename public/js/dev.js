@@ -8,7 +8,23 @@ function pageLoad_init()
 {
 	trace("pageLoad_init();");
 	
+	system = {};
+
 	project_ios_fix_init();
+
+	project_data_init();
+}
+
+function project_data_init()
+{
+	load_data_json('public/data/setup.json', project_data_loaded);
+}
+
+function project_data_loaded(data)
+{
+	system.data = JSON.parse(data);
+
+	trace(system.data);
 
 	project_setup();
 }
@@ -93,6 +109,6 @@ function dev_event(event)
 
 function stepsWalk(max)
 {
-	let count = 0;
-	let max = max;
+	// let count = 0;
+	// let max = max;
 }
