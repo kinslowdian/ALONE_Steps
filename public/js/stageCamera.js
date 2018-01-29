@@ -346,6 +346,7 @@ function ui_required()
 	}
 	*/
 
+	// STRING IF STATEMENT IN JSON READ WITH eval();
 	eval(system.data.LEVELS[level].ui_required);
 
 	control_on();
@@ -422,6 +423,7 @@ function ui_path(direction, keyInput)
 	}
 	*/
 
+	// STRING IF STATEMENT IN JSON READ WITH eval();
 	eval(system.data.LEVELS[level].ui_path);
 
 	if(activated && keyInput)
