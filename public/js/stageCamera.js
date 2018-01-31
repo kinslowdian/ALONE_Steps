@@ -114,11 +114,13 @@ class Section
 
 class Player
 {
-	constructor(htmlAttach, htmlAttachInner, htmlAttachBase, w, h, x, y)
+	constructor(htmlAttach, htmlAttachInner, htmlAttachBase, htmlAttachLegL, htmlAttachLegR, w, h, x, y)
 	{
 		this.htmlAttach = htmlAttach;
 		this.htmlAttachInner = htmlAttachInner;
 		this.htmlAttachBase = htmlAttachBase;
+		this.htmlAttachLegL = htmlAttachLegL;
+		this.htmlAttachLegR = htmlAttachLegR;
 		this.w = w;
 		this.h = h;
 		this.x = x;
@@ -155,6 +157,8 @@ class Player
 			// this.htmlAttachBase.classList.remove("player-hold");
 			// this.htmlAttachBase.style.animationPlayState = "running";
 			this.htmlAttachBase.classList.add("player-walk");
+			this.htmlAttachLegL.classList.add("player-walk-legL");
+			this.htmlAttachLegR.classList.add("player-walk-legR");
 		}
 
 		else
@@ -162,6 +166,8 @@ class Player
 			// this.htmlAttachBase.classList.add("player-hold");
 			// this.htmlAttachBase.style.animationPlayState = "paused";
 			this.htmlAttachBase.classList.remove("player-walk");
+			this.htmlAttachLegL.classList.remove("player-walk-legL");
+			this.htmlAttachLegR.classList.remove("player-walk-legR");
 		}
 	}
 }
@@ -243,7 +249,7 @@ function player_init()
 {
 	trace(displayList.player);
 
-	player = new Player(displayList.player, displayList.playerInner, displayList.playerBase, 110, 250, 0, 0);
+	player = new Player(displayList.player, displayList.playerInner, displayList.playerBase, displayList.playerLegL, displayList.playerLegR, 110, 250, 0, 0);
 	player.playerDirection("F");
 	
 	CAM.connectPlayer(player);
