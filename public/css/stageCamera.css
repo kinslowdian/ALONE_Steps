@@ -413,8 +413,19 @@
 
 .item
 {
-	border-radius: 50%;
 	opacity: 1;
+}
+
+.item0
+{
+	width: 50px;
+	height: 50px;
+	position: absolute;
+	background: #ff0033;
+	border-radius: 50%;
+	left: 0; right: 0; top: 0; bottom: 0;
+
+	margin: auto auto 0 auto;
 }
 
 

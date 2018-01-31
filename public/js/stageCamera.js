@@ -208,7 +208,7 @@ function section_init()
 	let s1 = new Section(displayList.section1, 110, 250, 945, 415, "#F49390", false);
 	let s2 = new Section(displayList.section2, 110, 250, 1385, 215, "#C45AB3", false);
 	let s3 = new Section(displayList.section3, 110, 250, 1890, 215, "#631A86", false);
-	let s4 = new Section(displayList.section4, 50, 50, 500, 615, "#FF0033", true);
+	let s4 = new Section(displayList.section4, 110, 250, 470, 415, "none", true);
 	// let s5 = new Section(displayList.section5, 110, 250, 1330, 215, "#631A86");
 	// let s6 = new Section(displayList.section6, 110, 250, 1890, 215, "#631A86");
 
