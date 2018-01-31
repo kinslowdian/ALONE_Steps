@@ -411,6 +411,12 @@
 	outline-offset: -20px;
 }
 
+.item
+{
+	border-radius: 50%;
+	opacity: 1;
+}
+
 
 
 

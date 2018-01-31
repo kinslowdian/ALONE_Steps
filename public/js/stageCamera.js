@@ -70,9 +70,28 @@ class Camera
 		}
 	}
 
+	/*
 	// OUT OF SCOPE
 	viewerTransitionEvent(event)
 	{
+		trace(this.viewer);
+
+		if(event.target === this.viewer)
+		{
+			trace(event.target);
+
+			event.target.removeEventListener("transitionend", this.viewerTransitionEvent, false);
+
+			// LINK BACK VALUES
+			camera_newFocus();
+		}
+	}
+	*/
+
+	viewerTransitionEvent(event)
+	{
+		trace(event.target);
+
 		event.target.removeEventListener("transitionend", this.viewerTransitionEvent, false);
 
 		// LINK BACK VALUES
@@ -88,14 +107,15 @@ class Camera
 
 class Section
 {
-	constructor(main, w, h, x, y, bg)
+	constructor(main, w, h, x, y, bg, isAnItem)
 	{
 		this.htmlAttach = main;
 		this.w = w;
 		this.h = h;
 		this.x = x;
 		this.y = y;
-		this.bg = bg;	
+		this.bg = bg;
+		this.isAnItem = isAnItem;	
 	}
 
 	placement()
@@ -192,15 +212,15 @@ function section_init()
 	displayList.section1 = document.querySelector(".section1");
 	displayList.section2 = document.querySelector(".section2");
 	displayList.section3 = document.querySelector(".section3");
-	// displayList.section4 = document.querySelector(".section4");
+	displayList.section4 = document.querySelector(".section4");
 	// displayList.section5 = document.querySelector(".section5");
 	// displayList.section6 = document.querySelector(".section6");
 	
-	let s0 = new Section(displayList.section0, 110, 250, 100, 415, "#333");
-	let s1 = new Section(displayList.section1, 110, 250, 945, 415, "#F49390");
-	let s2 = new Section(displayList.section2, 110, 250, 1385, 215, "#C45AB3");
-	let s3 = new Section(displayList.section3, 110, 250, 1890, 215, "#631A86");
-	// let s4 = new Section(displayList.section4, 110, 250, 1220, 265, "#631A86");
+	let s0 = new Section(displayList.section0, 110, 250, 100, 415, "#333", false);
+	let s1 = new Section(displayList.section1, 110, 250, 945, 415, "#F49390", false);
+	let s2 = new Section(displayList.section2, 110, 250, 1385, 215, "#C45AB3", false);
+	let s3 = new Section(displayList.section3, 110, 250, 1890, 215, "#631A86", false);
+	let s4 = new Section(displayList.section4, 50, 50, 500, 615, "#FF0033", true);
 	// let s5 = new Section(displayList.section5, 110, 250, 1330, 215, "#631A86");
 	// let s6 = new Section(displayList.section6, 110, 250, 1890, 215, "#631A86");
 
@@ -208,7 +228,7 @@ function section_init()
 	s1.placement();
 	s2.placement();
 	s3.placement();
-	// s4.placement();
+	s4.placement();
 	// s5.placement();
 	// s6.placement();
 
@@ -216,7 +236,7 @@ function section_init()
 	sectionsARR.push(s1);
 	sectionsARR.push(s2);
 	sectionsARR.push(s3);
-	// sectionsARR.push(s4);
+	sectionsARR.push(s4);
 	// sectionsARR.push(s5);
 	// sectionsARR.push(s6);
 }
@@ -253,11 +273,15 @@ function camera_init()
 
 function camera_newFocus()
 {
+	trace("camera_newFocus();");
+
 	CAM.viewerUpdateValues();
 
 	player.playerWalk(false);
 	
 	ui_required();
+
+	trace(sectionsARR[sectionFocus].isAnItem);
 }
 
 function ui_init()
