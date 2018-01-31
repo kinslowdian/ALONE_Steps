@@ -70,32 +70,20 @@ class Camera
 		}
 	}
 
-	/*
 	// OUT OF SCOPE
 	viewerTransitionEvent(event)
 	{
-		trace(this.viewer);
+		let caller = event.target.attributes["data-instance"].value;
 
-		if(event.target === this.viewer)
+		if(caller === "viewer")
 		{
-			trace(event.target);
+			trace(event);
 
 			event.target.removeEventListener("transitionend", this.viewerTransitionEvent, false);
 
 			// LINK BACK VALUES
 			camera_newFocus();
 		}
-	}
-	*/
-
-	viewerTransitionEvent(event)
-	{
-		trace(event.target);
-
-		event.target.removeEventListener("transitionend", this.viewerTransitionEvent, false);
-
-		// LINK BACK VALUES
-		camera_newFocus();
 	}
 
 	viewerUpdateValues()

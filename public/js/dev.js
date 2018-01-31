@@ -34,11 +34,11 @@ function project_setup()
 	displayList = {};
 
 	displayList.camera = document.querySelector(".camera");
-	displayList.viewer = document.querySelector(".viewer");
-	displayList.layer0 = document.querySelector(".layer0");
-	displayList.player = document.querySelector(".player");
-	displayList.playerInner = document.querySelector(".player .player-inner");
-	displayList.playerBase = document.querySelector(".player .player-base");
+	displayList.viewer = document.querySelector(".camera .viewer");
+	displayList.layer0 = document.querySelector(".camera .layer0");
+	displayList.player = document.querySelector(".camera .viewer .player");
+	displayList.playerInner = document.querySelector(".camera .viewer .player .player-inner");
+	displayList.playerBase = document.querySelector(".camera .viewer .player .player-base");
 
 	section_init();
 	camera_init();
