@@ -1,99 +1,124 @@
-if(current == 0 && selected == 1)
+function ui_required()
 {
-	direction = R;
-	option = L;
+	/*
+	if(sectionFocus === 0)
+	{
+		ui_activate(ui.R);
+
+		hint_activate(ui.HINT_R);
+	}
+	
+	else if(sectionFocus === 1)
+	{
+		ui_activate(ui.R);
+		ui_activate(ui.L);
+
+		hint_activate(ui.HINT_R);
+		hint_activate(ui.HINT_L);	
+	}
+	
+	else if(sectionFocus === 2)
+	{
+		ui_activate(ui.R);
+		ui_activate(ui.L);
+
+		hint_activate(ui.HINT_R);
+		hint_activate(ui.HINT_L);	
+	}
+	
+	else if(sectionFocus === 3)
+	{
+		ui_activate(ui.L);
+
+		hint_activate(ui.HINT_L);	
+	}
+	*/
+
+	// STRING IF STATEMENT IN JSON READ WITH eval();
+	eval(system.data.LEVELS[level].ui_required);
+
+	control_on();
 }
 
-else if(current == 1 & selected == 0)
+function ui_path(direction, keyInput)
 {
-	direction = L;
-	option = R;
+	let activated = false;
+
+	/*
+	switch(sectionFocus)
+	{
+		case 0:
+		{
+			if(direction === "R")
+			{
+				section_request(1);
+				activated = true;
+				player.playerDirection("F");
+			}
+			
+			break;
+		}
+		
+		case 1:
+		{
+			if(direction === "R")
+			{
+				section_request(2);
+				activated = true;
+				player.playerDirection("F");
+			}
+			
+			else if(direction === "L")
+			{
+				section_request(0);
+				activated = true;
+				player.playerDirection("B");
+			}
+			
+			break;
+		}
+		
+		case 2:
+		{
+			if(direction === "R")
+			{
+				section_request(3);
+				activated = true;
+				player.playerDirection("F");
+			}
+			
+			else if(direction === "L")
+			{
+				section_request(1);
+				activated = true;
+				player.playerDirection("B");
+			}
+			
+			break;
+		}
+		
+		case 3:
+		{	
+			if(direction === "L")
+			{
+				section_request(2);
+				activated = true;
+				player.playerDirection("B");
+			}
+			
+			break;
+		}
+	}
+	*/
+
+	// STRING IF STATEMENT IN JSON READ WITH eval();
+	eval(system.data.LEVELS[level].ui_path);
+
+	if(activated && keyInput)
+	{
+		ui_reset();
+		hint_reset();
+
+		player.playerWalk(true);
+	}
 }
-
-
-
-if(current == 0) // R D
-{
-	if(selected == 1)
-	{
-		direction = R;
-		option = L;
-	}
-	
-	else if(selected == 2)
-	{
-		direction = D;
-		option = U;
-	}
-	
-	else if(selected == 3)
-	{
-		direction = R;
-		option = L;
-	}
-}
-
-else if(current == 1) // L U
-{
-	if(selected == 0)
-	{
-		direction = L;
-		option = R;
-	}
-	
-	else if(selected == 2)
-	{
-		direction = L;
-		option = R;
-	}
-	
-	else if(selected == 3)
-	{
-		direction = U;
-		option = D;
-	}	
-}
-
-else if(current == 2) // U R
-{
-	if(selected == 0)
-	{
-		direction = U;
-		option = D;
-	}
-	
-	else if(selected == 1)
-	{
-		direction = R;
-		option = L;
-	}
-	
-	else if(selected == 3)
-	{
-		direction = U;
-		option = D;
-	}	
-}
-
-else if(current == 3) // D L
-{
-	if(selected == 1)
-	{
-		direction = D;
-		option = U;
-	}
-	
-	else if(selected == 2)
-	{
-		direction = D;
-		option = U;
-	}
-	
-	else if(selected == 0)
-	{
-		direction = L;
-		option = R;
-	}	
-}
-
-
