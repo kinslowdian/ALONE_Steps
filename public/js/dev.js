@@ -109,9 +109,3 @@ function dev_event(event)
 	
 	section_request(event.target.dataset.num);
 }
-
-function stepsWalk(max)
-{
-	// let count = 0;
-	// let max = max;
-}

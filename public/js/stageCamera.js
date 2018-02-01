@@ -171,8 +171,6 @@ class Player
 	{
 		if(allow)
 		{
-			// this.htmlAttachBase.classList.remove("player-hold");
-			// this.htmlAttachBase.style.animationPlayState = "running";
 			this.htmlAttachBase.classList.add("player-walk");
 			this.htmlAttachLegL.classList.add("player-walk-legL");
 			this.htmlAttachLegR.classList.add("player-walk-legR");
@@ -180,8 +178,6 @@ class Player
 
 		else
 		{
-			// this.htmlAttachBase.classList.add("player-hold");
-			// this.htmlAttachBase.style.animationPlayState = "paused";
 			this.htmlAttachBase.classList.remove("player-walk");
 			this.htmlAttachLegL.classList.remove("player-walk-legL");
 			this.htmlAttachLegR.classList.remove("player-walk-legR");
@@ -239,32 +235,24 @@ function section_init()
 	displayList.section2 = document.querySelector(".section2");
 	displayList.section3 = document.querySelector(".section3");
 	displayList.section4 = document.querySelector(".section4");
-	// displayList.section5 = document.querySelector(".section5");
-	// displayList.section6 = document.querySelector(".section6");
 	
 	let s0 = new Section(displayList.section0, 110, 250, 100, 415, "#333", false);
 	let s1 = new Section(displayList.section1, 110, 250, 945, 415, "#F49390", false);
 	let s2 = new Section(displayList.section2, 110, 250, 1385, 215, "#C45AB3", false);
 	let s3 = new Section(displayList.section3, 110, 250, 1890, 215, "#631A86", false);
 	let s4 = new Section(displayList.section4, 110, 250, 470, 415, "none", true);
-	// let s5 = new Section(displayList.section5, 110, 250, 1330, 215, "#631A86");
-	// let s6 = new Section(displayList.section6, 110, 250, 1890, 215, "#631A86");
 
 	s0.placement();
 	s1.placement();
 	s2.placement();
 	s3.placement();
 	s4.placement();
-	// s5.placement();
-	// s6.placement();
 
 	sectionsARR.push(s0);
 	sectionsARR.push(s1);
 	sectionsARR.push(s2);
 	sectionsARR.push(s3);
 	sectionsARR.push(s4);
-	// sectionsARR.push(s5);
-	// sectionsARR.push(s6);
 }
 
 function section_request(num)

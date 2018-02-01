@@ -384,11 +384,6 @@
 	100%	{transform: translateY(0px);}
 }
 
-.player-Hold
-{
-	animation-play-state: paused;
-}
-
 .thought
 {
 	width: 40px;
