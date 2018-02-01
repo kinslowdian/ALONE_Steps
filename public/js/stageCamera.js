@@ -75,6 +75,8 @@ class Camera
 	{
 		let caller = event.target.attributes["data-instance"].value;
 
+		trace(event.target);
+
 		if(caller === "viewer")
 		{
 			trace(event);
@@ -128,13 +130,24 @@ class Player
 
 		this.playerWalk(false);
 	}
+
+	playerAddThought(htmlAttachThought)
+	{
+		this.thinking = false;
+		this.htmlAttachThought = htmlAttachThought;
+	}
 	
 	playerMoveTo(target)
 	{
 		let x = target.x + (target.w * 0.5);
 		let y = target.y + (target.h * 0.5);
 		
-		this.htmlAttach.setAttribute("style", "transform: translate(calc(" + x + "px - " + (this.w * 0.5) + "px), calc(" + y + "px - " + (this.h * 0.5) + "px));");	
+		this.htmlAttach.setAttribute("style", "transform: translate(calc(" + x + "px - " + (this.w * 0.5) + "px), calc(" + y + "px - " + (this.h * 0.5) + "px));");
+
+		if(this.thinking)
+		{
+			this.playerThink(false);
+		}
 	}
 
 	playerDirection(dir)
@@ -142,11 +155,15 @@ class Player
 		if(dir == "F")
 		{
 			this.htmlAttachInner.classList.remove("player-back");
+
+			this.htmlAttachThought.classList.remove("player-back");
 		}
 
 		else if(dir == "B")
 		{
 			this.htmlAttachInner.classList.add("player-back");
+
+			this.htmlAttachThought.classList.add("player-back");
 		}
 	}
 
@@ -168,6 +185,21 @@ class Player
 			this.htmlAttachBase.classList.remove("player-walk");
 			this.htmlAttachLegL.classList.remove("player-walk-legL");
 			this.htmlAttachLegR.classList.remove("player-walk-legR");
+		}
+	}
+
+	playerThink(allow)
+	{
+		if(allow)
+		{
+			this.thinking = true;
+			this.htmlAttachThought.classList.add("thought-thinking");
+		}
+
+		else
+		{
+			this.thinking = false;
+			this.htmlAttachThought.classList.remove("thought-thinking");
 		}
 	}
 }
@@ -250,6 +282,7 @@ function player_init()
 	trace(displayList.player);
 
 	player = new Player(displayList.player, displayList.playerInner, displayList.playerBase, displayList.playerLegL, displayList.playerLegR, 110, 250, 0, 0);
+	player.playerAddThought(displayList.playerThought);
 	player.playerDirection("F");
 	
 	CAM.connectPlayer(player);
@@ -265,9 +298,10 @@ function camera_init()
 	CAM.connectViewerOther(displayList.layer0);
 }
 
+// ON END OF CAMERA TRANSITIONS
 function camera_newFocus()
 {
-	trace("camera_newFocus();");
+	trace("camera_newFocus();")
 
 	CAM.viewerUpdateValues();
 
@@ -276,6 +310,10 @@ function camera_newFocus()
 	ui_required();
 
 	trace(sectionsARR[sectionFocus].isAnItem);
+	if(sectionsARR[sectionFocus].isAnItem)
+	{
+		player.playerThink(true);
+	}
 }
 
 function ui_init()
@@ -343,11 +381,17 @@ function ui_path(direction, keyInput)
 	// STRING IF STATEMENT IN JSON READ WITH eval();
 	eval(system.data.LEVELS[level].ui_path);
 
-	if(activated && keyInput)
+	if(keyInput)
 	{
-		ui_reset();
-		hint_reset();
+		if(activated)
+		{
+			ui_reset();
+			hint_reset();
+		}
+	}
 
+	if(activated)
+	{
 		player.playerWalk(true);
 	}
 }

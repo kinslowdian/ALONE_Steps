@@ -233,7 +233,7 @@
 
 	position: absolute;
 
-	transition: 800ms ease-in-out 800ms;
+	transition: transform 800ms ease-in-out 800ms;
 }
 
 .bg
@@ -281,7 +281,7 @@
 	position: absolute;
 /* 	background: #ff0033; */
 	
-	transition: 1600ms ease-in-out;
+	transition: transform 1600ms ease-in-out;
 }
 
 .player .player-inner, .player .player-base
@@ -387,6 +387,31 @@
 .player-Hold
 {
 	animation-play-state: paused;
+}
+
+.thought
+{
+	width: 40px;
+	height: 60px;
+	position: absolute;
+	right: 0; top: 0;
+
+	opacity: 0;
+
+	transition: opacity 200ms ease-out;
+}
+
+.thought-thinking
+{
+	opacity: 1;
+}
+
+.gfx-thought
+{
+	background-image: url(../img/speech.svg);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 100%;	
 }
 
 .blend

@@ -41,6 +41,7 @@ function project_setup()
 	displayList.playerBase = document.querySelector(".camera .viewer .player .player-base");
 	displayList.playerLegL = document.querySelector(".camera .viewer .player .player-base .player-leg-l");
 	displayList.playerLegR = document.querySelector(".camera .viewer .player .player-base .player-leg-r");
+	displayList.playerThought = document.querySelector(".camera .viewer .player .player-base .thought");
 
 	section_init();
 	camera_init();
