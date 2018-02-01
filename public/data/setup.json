@@ -1,10 +1,35 @@
 {
+	"SYSTEM":
+	{
+		"sectionProps":
+		{
+			"w": 110,
+			"h": 250
+		}
+	},
+
 	"LEVELS":
 	[
 		{
 			"data_id": 0,
+
+			"sections":
+			[
+				{"num_ref": 0, "x": 100, "y": 415, "isAnItem": false, "devVis": "#333"},
+				{"num_ref": 1, "x": 945, "y": 415, "isAnItem": false, "devVis": "#333"},
+				{"num_ref": 2, "x": 1385, "y": 215, "isAnItem": false, "devVis": "#333"},
+				{"num_ref": 3, "x": 1890, "y": 215, "isAnItem": false, "devVis": "#333"},
+				{"num_ref": 4, "x": 470, "y": 415, "isAnItem": true, "item_ref": 0, "devVis": "none"}
+			],
+
+			"items":
+			[
+				{"num_ref": 0, "css_class": "item-ball"}
+			],
+
 			"ui_required": "if(sectionFocus === 0){ui_activate(ui.R); hint_activate(ui.HINT_R);} else if(sectionFocus === 1){ui_activate(ui.R); ui_activate(ui.L); hint_activate(ui.HINT_R); hint_activate(ui.HINT_L);} else if(sectionFocus === 2){ui_activate(ui.R); ui_activate(ui.L); hint_activate(ui.HINT_R); hint_activate(ui.HINT_L);} else if(sectionFocus === 3){ui_activate(ui.L); hint_activate(ui.HINT_L);} else if(sectionFocus === 4){ui_activate(ui.R); ui_activate(ui.L); hint_activate(ui.HINT_R); hint_activate(ui.HINT_L);}",
-			"ui_path": "switch(sectionFocus) { case 0: { if(direction === 'R') { section_request(4); activated = true; player.playerDirection('F'); } break; } case 1: { if(direction === 'R') { section_request(2); activated = true; player.playerDirection('F'); } else if(direction === 'L') { section_request(4); activated = true; player.playerDirection('B'); } break; } case 2: { if(direction === 'R') { section_request(3); activated = true; player.playerDirection('F'); } else if(direction === 'L') { section_request(1); activated = true; player.playerDirection('B'); } break; } case 3: { if(direction === 'L') { section_request(2); activated = true; player.playerDirection('B'); } break; } case 4: { if(direction === 'L') { section_request(0); activated = true; player.playerDirection('B'); } else if(direction === 'R') { section_request(1); activated = true; player.playerDirection('F'); } break; } }"
+
+			"ui_path": "switch(sectionFocus) { case 0: { if(direction === 'R') { section_request(4); activated = true; player.playerDirection('F'); } break; } case 1: { if(direction === 'R') { section_request(2); activated = true; player.playerDirection('F'); } else if(direction === 'L') { section_request(4); activated = true; player.playerDirection('B'); } break; } case 2: { if(direction === 'R') { section_request(3); activated = true; player.playerDirection('F'); } else if(direction === 'L') { section_request(1); activated = true; player.playerDirection('B'); } break; } case 3: { if(direction === 'L') { section_request(2); activated = true; player.playerDirection('B'); } break; } case 4: { if(direction === 'L') { section_request(0); activated = true; player.playerDirection('B'); } else if(direction === 'R') { section_request(1); activated = true; player.playerDirection('F'); } else if(direction === 'D'){ item_found(); activated = true; player.playerThink(false); } break; } }"
 		},
 
 		{

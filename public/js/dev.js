@@ -46,6 +46,8 @@ function project_setup()
 	section_init();
 	camera_init();
 
+	itemEvent = false;
+
 	// LAST
 	resize_init(true);
 	

@@ -112,6 +112,11 @@ class Section
 	{
 		this.htmlAttach.setAttribute("style", "width: " + this.w + "px; height: " + this.h + "px; transform: translate(" + this.x + "px, " + this.y + "px); background: " + this.bg + ";");
 	}
+
+	attachItem(obj)
+	{
+		this.itemObj = obj;
+	}
 }
 
 class Player
@@ -213,6 +218,8 @@ var player;
 
 var system;
 var level = 0;
+
+var itemEvent;
 
 function project_ios_fix_init()
 {
@@ -380,7 +387,10 @@ function ui_path(direction, keyInput)
 
 	if(activated)
 	{
-		player.playerWalk(true);
+		if(!itemEvent)
+		{
+			player.playerWalk(true);
+		}
 	}
 }
 
@@ -460,6 +470,16 @@ function hint_reset()
 		}
 	}
 }
+
+function item_found()
+{
+	itemEvent = true;
+
+	trace(sectionsARR[sectionFocus]);
+}
+
+
+//// GENREAL STAGE
 
 function resize_init(run)
 {
