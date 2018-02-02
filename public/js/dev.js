@@ -43,6 +43,8 @@ function project_setup()
 	displayList.playerLegR = document.querySelector(".camera .viewer .player .player-base .player-leg-r");
 	displayList.playerThought = document.querySelector(".camera .viewer .player .player-base .thought");
 
+	displayList.layerSections = document.querySelector(".camera .viewer .layer-sections");
+
 	section_init();
 	camera_init();
 

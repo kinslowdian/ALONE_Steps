@@ -97,7 +97,55 @@ class Camera
 
 class Section
 {
-	constructor(main, w, h, x, y, bg, isAnItem)
+	constructor(w, h, displayListPushTo, props)
+	{
+		trace(props);
+		this.htmlAttach = null
+		
+		this.w = w;
+		this.h = h;
+		this.displayListPushTo = displayListPushTo;	
+		this.parentLayer = props.parentLayer;
+		this.num = props.num_ref;
+		this.x = props.x;
+		this.y = props.y;
+		this.bg = props.devVis;
+		this.isAnItem = props.isAnItem;
+		this.htmlBuild = "";
+		this.classBuild = 'section' + this.num;
+		trace("CHECK 1" + this.parentLayer);
+
+		this.build();
+	}
+
+	build()
+	{
+		trace("CHECK 2" + this.parentLayer);
+		
+		this.htmlBuild = '<div class="section ' + this.classBuild + '"><p>' + this.num + '</p></div>';
+
+		trace(this.htmlBuild);
+		// let layerDiv = document.querySelector(this.parentLayer); 
+		
+		// layerDiv.innerHTML += shtml;
+
+		// let grab = this.parentLayer;
+
+		// document.querySelector(grab).innerHTML += shtml;
+
+		// this.displayListPushTo["section" + this.num] = document.querySelector(".section" + this.num);
+
+		// this.list(this.displayListPushTo["section" + this.num]);
+	}
+
+	list(htmlAttach)
+	{
+		this.htmlAttach = htmlAttach;
+
+		this.placement();
+	}
+
+	constructorOLD(main, w, h, x, y, bg, isAnItem)
 	{
 		this.htmlAttach = main;
 		this.w = w;
@@ -237,6 +285,18 @@ function section_init()
 {
 	sectionsARR = new Array();
 
+	for(let i  = 0; i < system.data.LEVELS[level].sections.length; i++)
+	{
+		displayList["section" + i] = {};
+
+		let s = new Section(110, 250, displayList, system.data.LEVELS[level].sections[i]);
+
+		sectionsARR.push(s);
+	}
+
+	section_add();
+
+	/*
 	displayList.section0 = document.querySelector(".section0");
 	displayList.section1 = document.querySelector(".section1");
 	displayList.section2 = document.querySelector(".section2");
@@ -260,6 +320,38 @@ function section_init()
 	sectionsARR.push(s2);
 	sectionsARR.push(s3);
 	sectionsARR.push(s4);
+	*/
+}
+
+function section_add()
+{
+	let htmlString = "";
+
+	for(let i in sectionsARR)
+	{
+		if(!sectionsARR[i].isAnItem)
+		{
+			htmlString += sectionsARR[i].htmlBuild;
+		}
+	}
+
+	displayList.layerSections.innerHTML = htmlString;
+
+	trace(htmlString);
+
+	section_display();
+}
+
+function section_display()
+{
+	for(let i in sectionsARR)
+	{
+		if(!sectionsARR[i].isAnItem)
+		{
+			displayList["section" + sectionsARR[i].num_ref] = document.querySelector("." + sectionsARR[i].classBuild);
+			sectionsARR[i].list(displayList["section" + sectionsARR[i].num_ref]);
+		}
+	}
 }
 
 function section_request(num)
