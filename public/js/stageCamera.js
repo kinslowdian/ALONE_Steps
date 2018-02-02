@@ -70,17 +70,13 @@ class Camera
 		}
 	}
 
-	// OUT OF SCOPE
+	// OUT OF SCOPE HIGH BUG CHANCE WITH JS ISSUES
 	viewerTransitionEvent(event)
 	{
 		let caller = event.target.attributes["data-instance"].value;
 
-		trace(event.target);
-
 		if(caller === "viewer")
 		{
-			trace(event);
-
 			event.target.removeEventListener("transitionend", this.viewerTransitionEvent, false);
 
 			// LINK BACK VALUES
@@ -97,14 +93,12 @@ class Camera
 
 class Section
 {
-	constructor(w, h, displayListPushTo, props)
+	constructor(w, h, props)
 	{
-		trace(props);
 		this.htmlAttach = null
-		
+
 		this.w = w;
-		this.h = h;
-		this.displayListPushTo = displayListPushTo;	
+		this.h = h;	
 		this.parentLayer = props.parentLayer;
 		this.num = props.num_ref;
 		this.x = props.x;
@@ -113,29 +107,13 @@ class Section
 		this.isAnItem = props.isAnItem;
 		this.htmlBuild = "";
 		this.classBuild = 'section' + this.num;
-		trace("CHECK 1" + this.parentLayer);
 
 		this.build();
 	}
 
 	build()
 	{
-		trace("CHECK 2" + this.parentLayer);
-		
 		this.htmlBuild = '<div class="section ' + this.classBuild + '"><p>' + this.num + '</p></div>';
-
-		trace(this.htmlBuild);
-		// let layerDiv = document.querySelector(this.parentLayer); 
-		
-		// layerDiv.innerHTML += shtml;
-
-		// let grab = this.parentLayer;
-
-		// document.querySelector(grab).innerHTML += shtml;
-
-		// this.displayListPushTo["section" + this.num] = document.querySelector(".section" + this.num);
-
-		// this.list(this.displayListPushTo["section" + this.num]);
 	}
 
 	list(htmlAttach)
@@ -143,17 +121,6 @@ class Section
 		this.htmlAttach = htmlAttach;
 
 		this.placement();
-	}
-
-	constructorOLD(main, w, h, x, y, bg, isAnItem)
-	{
-		this.htmlAttach = main;
-		this.w = w;
-		this.h = h;
-		this.x = x;
-		this.y = y;
-		this.bg = bg;
-		this.isAnItem = isAnItem;	
 	}
 
 	placement()
@@ -289,38 +256,12 @@ function section_init()
 	{
 		displayList["section" + i] = {};
 
-		let s = new Section(110, 250, displayList, system.data.LEVELS[level].sections[i]);
+		let s = new Section(110, 250, system.data.LEVELS[level].sections[i]);
 
 		sectionsARR.push(s);
 	}
 
 	section_add();
-
-	/*
-	displayList.section0 = document.querySelector(".section0");
-	displayList.section1 = document.querySelector(".section1");
-	displayList.section2 = document.querySelector(".section2");
-	displayList.section3 = document.querySelector(".section3");
-	displayList.section4 = document.querySelector(".section4");
-	
-	let s0 = new Section(displayList.section0, 110, 250, 100, 415, "#333", false);
-	let s1 = new Section(displayList.section1, 110, 250, 945, 415, "#F49390", false);
-	let s2 = new Section(displayList.section2, 110, 250, 1385, 215, "#C45AB3", false);
-	let s3 = new Section(displayList.section3, 110, 250, 1890, 215, "#631A86", false);
-	let s4 = new Section(displayList.section4, 110, 250, 470, 415, "none", true);
-
-	s0.placement();
-	s1.placement();
-	s2.placement();
-	s3.placement();
-	s4.placement();
-
-	sectionsARR.push(s0);
-	sectionsARR.push(s1);
-	sectionsARR.push(s2);
-	sectionsARR.push(s3);
-	sectionsARR.push(s4);
-	*/
 }
 
 function section_add()
@@ -336,8 +277,6 @@ function section_add()
 	}
 
 	displayList.layerSections.innerHTML = htmlString;
-
-	trace(htmlString);
 
 	section_display();
 }
@@ -396,7 +335,6 @@ function camera_newFocus()
 	
 	ui_required();
 
-	trace(sectionsARR[sectionFocus].isAnItem);
 	if(sectionsARR[sectionFocus].isAnItem)
 	{
 		player.playerThink(true);
