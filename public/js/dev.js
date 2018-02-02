@@ -44,14 +44,12 @@ function project_setup()
 	displayList.playerThought = document.querySelector(".camera .viewer .player .player-base .thought");
 
 	displayList.layerSections = document.querySelector(".camera .viewer .layer-sections");
+	displayList.layerItems = document.querySelector(".camera .viewer .layer-items");
 
 	section_init();
 	camera_init();
 
 	itemEvent = false;
-
-	// LAST
-	resize_init(true);
 	
 	ui_init();
 	
@@ -62,6 +60,9 @@ function project_setup()
 	project_start();
 
 	control_init();
+
+	// LAST
+	resize_init(true);
 }
 
 function project_start()

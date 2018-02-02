@@ -69,7 +69,7 @@ class Camera
 			this.viewerOther.setAttribute("style", "transform: translate(" + -(this.viewer.x * 0.25) + "px, " + -(this.viewer.y * 0.25) + "px);");
 		}
 	}
-	
+
 	// OUT OF SCOPE HIGH BUG CHANCE WITH JS ISSUES
 	viewerTransitionEvent(event)
 	{
@@ -234,6 +234,7 @@ var player;
 var system;
 var level = 0;
 
+var itemARR;
 var itemEvent;
 
 function project_ios_fix_init()
@@ -266,17 +267,24 @@ function section_init()
 
 function section_add()
 {
-	let htmlString = "";
+	let htmlSectionBasic = "";
+	let htmlSectionItem = "";
 
 	for(let i in sectionsARR)
 	{
-		if(!sectionsARR[i].isAnItem)
+		if(sectionsARR[i].isAnItem)
 		{
-			htmlString += sectionsARR[i].htmlBuild;
+			htmlSectionItem += sectionsARR[i].htmlBuild;
+		}
+
+		else
+		{
+			htmlSectionBasic += sectionsARR[i].htmlBuild;
 		}
 	}
 
-	displayList.layerSections.innerHTML = htmlString;
+	displayList.layerSections.innerHTML = htmlSectionBasic;
+	displayList.layerItems.innerHTML = htmlSectionItem;
 
 	section_display();
 }
@@ -285,11 +293,8 @@ function section_display()
 {
 	for(let i in sectionsARR)
 	{
-		if(!sectionsARR[i].isAnItem)
-		{
-			displayList["section" + sectionsARR[i].num_ref] = document.querySelector("." + sectionsARR[i].classBuild);
-			sectionsARR[i].list(displayList["section" + sectionsARR[i].num_ref]);
-		}
+		displayList["section" + sectionsARR[i].num_ref] = document.querySelector("." + sectionsARR[i].classBuild);
+		sectionsARR[i].list(displayList["section" + sectionsARR[i].num_ref]);
 	}
 }
 
@@ -301,6 +306,47 @@ function section_request(num)
 		
 		CAM.viewerFind(sectionsARR[sectionFocus]);
 	}
+}
+
+function item_init()
+{
+	itemARR = new Array();
+
+	for(let j = 0; j < system.data.LEVELS[level].items.length; j++)
+	{
+		// displayList ADD?
+
+		let i = new Item();
+		
+		itemARR.push(i);
+	}
+
+	item_add();
+
+	/*
+	sectionsARR = new Array();
+
+	for(let i  = 0; i < system.data.LEVELS[level].sections.length; i++)
+	{
+		displayList["section" + i] = {};
+
+		let s = new Section(110, 250, system.data.LEVELS[level].sections[i]);
+
+		sectionsARR.push(s);
+	}
+	*/
+}
+
+function item_add()
+{
+
+}
+
+function item_found()
+{
+	itemEvent = true;
+
+	trace(sectionsARR[sectionFocus]);
 }
 
 function player_init()
@@ -499,13 +545,6 @@ function hint_reset()
 			ui.hintList[i].htmlAttach.classList.add("ui-default");	
 		}
 	}
-}
-
-function item_found()
-{
-	itemEvent = true;
-
-	trace(sectionsARR[sectionFocus]);
 }
 
 
