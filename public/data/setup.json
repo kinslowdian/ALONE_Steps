@@ -15,16 +15,16 @@
 
 			"sections":
 			[
-				{"num_ref": 0, "parentLayer": "layer-sections", "x": 100, "y": 415, "isAnItem": false, "devVis": "#333"},
-				{"num_ref": 1, "parentLayer": "layer-sections", "x": 945, "y": 415, "isAnItem": false, "devVis": "#333"},
-				{"num_ref": 2, "parentLayer": "layer-sections", "x": 1385, "y": 215, "isAnItem": false, "devVis": "#333"},
-				{"num_ref": 3, "parentLayer": "layer-sections", "x": 1890, "y": 215, "isAnItem": false, "devVis": "#333"},
-				{"num_ref": 4, "parentLayer": "layer-items", "x": 470, "y": 415, "isAnItem": true, "item_ref": 0, "devVis": "none"}
+				{"num_ref": 0, "x": 100, "y": 415, "isAnItem": false, "item_ref": "none", "devVis": "#333"},
+				{"num_ref": 1, "x": 945, "y": 415, "isAnItem": false, "item_ref": "none", "devVis": "#333"},
+				{"num_ref": 2, "x": 1385, "y": 215, "isAnItem": false, "item_ref": "none", "devVis": "#333"},
+				{"num_ref": 3, "x": 1890, "y": 215, "isAnItem": false, "item_ref": "none", "devVis": "#333"},
+				{"num_ref": 4, "x": 470, "y": 415, "isAnItem": true, "item_ref": 0, "devVis": "none"}
 			],
 
 			"items":
 			[
-				{"num_ref": 0, "css_class": "item-ball"}
+				{"num_ref": 0, "cssBuild": "item0", "htmlBuild": "<div class='item0 item-ball'></div>"}
 			],
 
 			"ui_required": "if(sectionFocus === 0){ui_activate(ui.R); hint_activate(ui.HINT_R);} else if(sectionFocus === 1){ui_activate(ui.R); ui_activate(ui.L); hint_activate(ui.HINT_R); hint_activate(ui.HINT_L);} else if(sectionFocus === 2){ui_activate(ui.R); ui_activate(ui.L); hint_activate(ui.HINT_R); hint_activate(ui.HINT_L);} else if(sectionFocus === 3){ui_activate(ui.L); hint_activate(ui.HINT_L);} else if(sectionFocus === 4){ui_activate(ui.R); ui_activate(ui.L); hint_activate(ui.HINT_R); hint_activate(ui.HINT_L);}",

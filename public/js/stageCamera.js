@@ -99,14 +99,14 @@ class Section
 
 		this.w = w;
 		this.h = h;	
-		this.parentLayer = props.parentLayer;
 		this.num = props.num_ref;
 		this.x = props.x;
 		this.y = props.y;
-		this.bg = props.devVis;
+		this.bg = props.devVis; // REMOVE AT END
 		this.isAnItem = props.isAnItem;
 		this.htmlBuild = "";
 		this.classBuild = 'section' + this.num;
+		this.item_ref = props.item_ref;
 
 		this.build();
 	}
@@ -131,6 +131,23 @@ class Section
 	attachItem(obj)
 	{
 		this.itemObj = obj;
+	}
+}
+
+class Item
+{
+	constructor(props)
+	{
+		this.htmlAttach = null;
+		this.num = props.num_ref;
+		this.cssBuild = props.cssBuild;
+		this.htmlBuild = props.htmlBuild;
+		this.itemFound = false;
+	}
+
+	list(htmlAttach)
+	{
+		this.htmlAttach = htmlAttach;
 	}
 }
 
@@ -234,7 +251,7 @@ var player;
 var system;
 var level = 0;
 
-var itemARR;
+var itemsARR;
 var itemEvent;
 
 function project_ios_fix_init()
@@ -293,8 +310,8 @@ function section_display()
 {
 	for(let i in sectionsARR)
 	{
-		displayList["section" + sectionsARR[i].num_ref] = document.querySelector("." + sectionsARR[i].classBuild);
-		sectionsARR[i].list(displayList["section" + sectionsARR[i].num_ref]);
+		displayList["section" + sectionsARR[i].num] = document.querySelector("." + sectionsARR[i].classBuild);
+		sectionsARR[i].list(displayList["section" + sectionsARR[i].num]);
 	}
 }
 
@@ -310,36 +327,50 @@ function section_request(num)
 
 function item_init()
 {
-	itemARR = new Array();
+	itemsARR = new Array();
 
 	for(let j = 0; j < system.data.LEVELS[level].items.length; j++)
 	{
-		// displayList ADD?
+		displayList["item" + j] = {};
 
-		let i = new Item();
+		let i = new Item(system.data.LEVELS[level].items[j]);
 		
-		itemARR.push(i);
+		itemsARR.push(i);
 	}
 
 	item_add();
-
-	/*
-	sectionsARR = new Array();
-
-	for(let i  = 0; i < system.data.LEVELS[level].sections.length; i++)
-	{
-		displayList["section" + i] = {};
-
-		let s = new Section(110, 250, system.data.LEVELS[level].sections[i]);
-
-		sectionsARR.push(s);
-	}
-	*/
 }
 
 function item_add()
 {
+	for(let i in sectionsARR)
+	{
+		if(sectionsARR[i].isAnItem)
+		{
+			for(let j in itemsARR)
+			{
+				if(sectionsARR[i].item_ref === itemsARR[j].num)
+				{
+					sectionsARR[i].htmlAttach.innerHTML = itemsARR[j].htmlBuild;
+				}
+			}
+			
+		}
+	}
 
+	item_display();
+}
+
+function item_display()
+{
+	for(let i in itemsARR)
+	{
+		trace("item" + itemsARR[i].num);
+		trace("." + itemsARR[i].cssBuild);
+
+		displayList["item" + itemsARR[i].num] = document.querySelector("." + itemsARR[i].cssBuild);
+		itemsARR[i].list(displayList["item" + itemsARR[i].num]);
+	}
 }
 
 function item_found()

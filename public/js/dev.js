@@ -47,6 +47,7 @@ function project_setup()
 	displayList.layerItems = document.querySelector(".camera .viewer .layer-items");
 
 	section_init();
+	item_init();
 	camera_init();
 
 	itemEvent = false;
