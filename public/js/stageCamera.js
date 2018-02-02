@@ -69,7 +69,7 @@ class Camera
 			this.viewerOther.setAttribute("style", "transform: translate(" + -(this.viewer.x * 0.25) + "px, " + -(this.viewer.y * 0.25) + "px);");
 		}
 	}
-
+	
 	// OUT OF SCOPE HIGH BUG CHANCE WITH JS ISSUES
 	viewerTransitionEvent(event)
 	{
