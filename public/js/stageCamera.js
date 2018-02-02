@@ -143,6 +143,10 @@ class Item
 		this.cssBuild = props.cssBuild;
 		this.htmlBuild = props.htmlBuild;
 		this.itemFound = false;
+
+		this.found = {};
+		this.found.f = props.found.f;
+		this.found.p = props.found.p;
 	}
 
 	list(htmlAttach)
@@ -243,6 +247,7 @@ var displayList;
 var resizeTimeout;
 var sectionsARR;
 var sectionFocus;
+var itemFocus;
 
 var ui;
 
@@ -375,9 +380,50 @@ function item_display()
 
 function item_found()
 {
-	itemEvent = true;
+	let itemNumRef = sectionsARR[sectionFocus].item_ref;
 
-	trace(sectionsARR[sectionFocus]);
+	itemFocus = itemsARR[itemNumRef];
+
+	itemEvent = true;
+	itemFocus.itemFound = true;
+
+	
+	window[itemsARR[itemNumRef].found.f](itemsARR[itemNumRef].found.p);
+}
+
+function message_item_new(props)
+{
+	let timeThis;
+
+	displayList.message.innerHTML = "";
+	displayList.message.innerHTML = props.h;
+	displayList.message.classList.remove("message-off");
+
+	timeThis = setTimeout(message_item_end, props.t * 1000, props.r)
+}
+
+function message_item_end(removeItem)
+{
+	if(removeItem)
+	{
+		itemFocus.htmlAttach.remove();
+		itemFocus = null;
+		sectionFocus.isAnItem = false;
+		sectionFocus.item_ref = "none";
+	}
+
+	displayList.message.addEventListener("transitionend", message_item_event, false);
+
+	displayList.message.classList.add("message-off");
+}
+
+function message_item_event(event)
+{
+	displayList.message.removeEventListener("transitionend", message_item_event, false);
+
+	itemEvent = false;
+
+	camera_newFocus();
 }
 
 function player_init()
@@ -409,12 +455,20 @@ function camera_newFocus()
 	CAM.viewerUpdateValues();
 
 	player.playerWalk(false);
-	
-	ui_required();
 
 	if(sectionsARR[sectionFocus].isAnItem)
 	{
 		player.playerThink(true);
+	}
+
+	if(itemEvent)
+	{
+		// DO NOTHING
+	}
+
+	else
+	{
+		ui_required();
 	}
 }
 

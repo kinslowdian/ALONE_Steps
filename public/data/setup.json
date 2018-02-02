@@ -24,7 +24,21 @@
 
 			"items":
 			[
-				{"num_ref": 0, "cssBuild": "item0", "htmlBuild": "<div class='item0 item-ball'></div>"}
+				{
+					"num_ref": 0, 
+					"cssBuild": "item0", 
+					"htmlBuild": "<div class='item0 item-ball'></div>",
+					"found":
+					{
+						"f": "message_item_new",
+						"p": 
+						{
+							"h": "<div class='message-content'><p>Lorem ipsum</p></div>", 
+							"r": true,
+							"t": 4
+						}
+					}
+				}
 			],
 
 			"ui_required": "if(sectionFocus === 0){ui_activate(ui.R); hint_activate(ui.HINT_R);} else if(sectionFocus === 1){ui_activate(ui.R); ui_activate(ui.L); hint_activate(ui.HINT_R); hint_activate(ui.HINT_L);} else if(sectionFocus === 2){ui_activate(ui.R); ui_activate(ui.L); hint_activate(ui.HINT_R); hint_activate(ui.HINT_L);} else if(sectionFocus === 3){ui_activate(ui.L); hint_activate(ui.HINT_L);} else if(sectionFocus === 4){ui_activate(ui.R); ui_activate(ui.L); hint_activate(ui.HINT_R); hint_activate(ui.HINT_L);}",

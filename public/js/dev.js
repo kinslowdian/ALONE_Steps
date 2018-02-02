@@ -45,6 +45,7 @@ function project_setup()
 
 	displayList.layerSections = document.querySelector(".camera .viewer .layer-sections");
 	displayList.layerItems = document.querySelector(".camera .viewer .layer-items");
+	displayList.message = document.querySelector(".camera .message");
 
 	section_init();
 	item_init();
