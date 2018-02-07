@@ -450,13 +450,15 @@ function camera_init()
 // ON END OF CAMERA TRANSITIONS
 function camera_newFocus()
 {
+	let sectionOBJ = sectionsARR[sectionFocus];
+
 	trace("camera_newFocus();")
 
 	CAM.viewerUpdateValues();
 
 	player.playerWalk(false);
 
-	if(sectionsARR[sectionFocus].isAnItem)
+	if(sectionOBJ.isAnItem && !itemsARR[sectionOBJ.item_ref].itemFound)
 	{
 		player.playerThink(true);
 	}
