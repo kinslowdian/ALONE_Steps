@@ -14,7 +14,7 @@
 
 .tween
 {
-	backface-visibility: none;
+	backface-visibility: hidden;
 }
 
 .destroy

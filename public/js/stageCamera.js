@@ -108,6 +108,16 @@ class Section
 		this.classBuild = 'section' + this.num;
 		this.item_ref = props.item_ref;
 
+		if(this.item_ref !== "none")
+		{
+			this.empty = false;
+		}
+
+		else
+		{
+			this.empty = true;
+		}
+
 		this.build();
 	}
 
@@ -383,12 +393,21 @@ function item_found()
 	let itemNumRef = sectionsARR[sectionFocus].item_ref;
 
 	itemFocus = itemsARR[itemNumRef];
-
+	
 	itemEvent = true;
 	itemFocus.itemFound = true;
 
 	
 	window[itemsARR[itemNumRef].found.f](itemsARR[itemNumRef].found.p);
+}
+
+function item_destroy()
+{
+	itemFocus.htmlAttach.remove();
+	itemFocus = null;
+	sectionsARR[sectionFocus].isAnItem = false;
+	sectionsARR[sectionFocus].item_ref = "none";
+	sectionsARR[sectionFocus].empty = true;	
 }
 
 function message_item_new(props)
@@ -406,10 +425,7 @@ function message_item_end(removeItem)
 {
 	if(removeItem)
 	{
-		itemFocus.htmlAttach.remove();
-		itemFocus = null;
-		sectionFocus.isAnItem = false;
-		sectionFocus.item_ref = "none";
+		item_destroy();
 	}
 
 	displayList.message.addEventListener("transitionend", message_item_event, false);
