@@ -15,11 +15,85 @@
 
 			"sections":
 			[
-				{"num_ref": 0, "x": 100, "y": 415, "isAnItem": false, "item_ref": "none", "devVis": "#333"},
-				{"num_ref": 1, "x": 945, "y": 415, "isAnItem": false, "item_ref": "none", "devVis": "#333"},
-				{"num_ref": 2, "x": 1385, "y": 215, "isAnItem": false, "item_ref": "none", "devVis": "#333"},
-				{"num_ref": 3, "x": 1890, "y": 215, "isAnItem": false, "item_ref": "none", "devVis": "#333"},
-				{"num_ref": 4, "x": 470, "y": 415, "isAnItem": true, "item_ref": 0, "devVis": "none"}
+				{
+					"num_ref": 0, 
+					"x": 100, 
+					"y": 415, 
+					"isAnItem": false, 
+					"item_ref": "none", 
+					"devVis": "#333", 
+					"repsond": 
+					{
+						"U": false,
+						"D": false,
+						"L": false,
+						"R": 4
+					}
+				},
+
+				{
+					"num_ref": 1, 
+					"x": 945, 
+					"y": 415, 
+					"isAnItem": false, 
+					"item_ref": "none", 
+					"devVis": "#333",
+					"repsond":
+					{
+						"U": false,
+						"D": false,
+						"L": 4,
+						"R": 2
+					}
+				},
+				
+				{
+					"num_ref": 2, 
+					"x": 1385, 
+					"y": 215, 
+					"isAnItem": false, 
+					"item_ref": "none", 
+					"devVis": "#333",
+					"repsond":
+					{
+						"U": false,
+						"D": false,
+						"L": 1,
+						"R": 3
+					}
+				},
+				
+				{
+					"num_ref": 3, 
+					"x": 1890, 
+					"y": 215, 
+					"isAnItem": false, 
+					"item_ref": "none", 
+					"devVis": "#333",
+					"repsond":
+					{
+						"U": false,
+						"D": false,
+						"L": 2,
+						"R": false
+					}
+				},
+				
+				{
+					"num_ref": 4, 
+					"x": 470, 
+					"y": 415, 
+					"isAnItem": true, 
+					"item_ref": 0, 
+					"devVis": "none",
+					"repsond":
+					{
+						"U": false,
+						"D": true,
+						"L": 0,
+						"R": 1
+					}					
+				}
 			],
 
 			"items":
