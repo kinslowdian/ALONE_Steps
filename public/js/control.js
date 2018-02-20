@@ -5,6 +5,8 @@ function control_init()
 	control = {};
 	control.signal = "";
 	control.running = false;
+	control.typeKeys = true;
+	control.typeTouch = true;
 }
 
 function control_on()

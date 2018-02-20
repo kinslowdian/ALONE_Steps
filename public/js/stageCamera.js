@@ -107,6 +107,9 @@ class Section
 		this.htmlBuild = "";
 		this.classBuild = 'section' + this.num;
 		this.item_ref = props.item_ref;
+		this.respond = props.respond;
+
+		trace(props);
 
 		if(this.item_ref !== "none")
 		{
@@ -543,7 +546,79 @@ function ui_init()
 function ui_required()
 {
 	// STRING IF STATEMENT IN JSON READ WITH eval();
-	eval(system.data.LEVELS[level].ui_required);
+	// eval(system.data.LEVELS[level].ui_required);
+
+	let sectionTarget = sectionsARR[sectionFocus];
+
+	if(sectionTarget.respond.U !== "none")
+	{
+		if(control.typeKeys)
+		{
+			hint_activate(ui.HINT_U);
+		}
+
+		if(control.typeTouch)
+		{
+			ui_activate(ui.U);
+		}
+	}
+
+	if(sectionTarget.respond.D !== "none")
+	{
+		// TO DO 
+
+		if(sectionTarget.respond.D === true && sectionTarget.isAnItem)
+		{
+			if(control.typeKeys)
+			{
+				hint_activate(ui.HINT_D);
+			}
+
+			if(control.typeTouch)
+			{
+				ui_activate(ui.D);
+			}
+		}
+
+		else if(Number.isInteger(sectionTarget.respond.D))
+		{
+			if(control.typeKeys)
+			{
+				hint_activate(ui.HINT_D);
+			}
+
+			if(control.typeTouch)
+			{
+				ui_activate(ui.D);
+			}			
+		}
+	}
+
+	if(sectionTarget.respond.L !== "none")
+	{
+		if(control.typeKeys)
+		{
+			hint_activate(ui.HINT_L);
+		}
+
+		if(control.typeTouch)
+		{
+			ui_activate(ui.L);
+		}
+	}
+
+	if(sectionTarget.respond.R !== "none")
+	{
+		if(control.typeKeys)
+		{
+			hint_activate(ui.HINT_R);
+		}
+
+		if(control.typeTouch)
+		{
+			ui_activate(ui.R);
+		}
+	}
 
 	control_on();
 }
@@ -553,7 +628,78 @@ function ui_path(direction, keyInput)
 	let activated = false;
 
 	// STRING IF STATEMENT IN JSON READ WITH eval();
-	eval(system.data.LEVELS[level].ui_path);
+	// eval(system.data.LEVELS[level].ui_path);
+
+	let sectionTarget = sectionsARR[sectionFocus];
+
+	switch(direction)
+	{
+		case "U":
+		{
+			if(sectionTarget.respond.U !== "none")
+			{
+				activated = true;
+
+				section_request(sectionTarget.respond.U);
+			}
+
+			break;
+		}
+
+		case "D":
+		{
+			if(sectionTarget.respond.D !== "none")
+			{
+				if(sectionTarget.respond.D === true)
+				{
+					// ITEM
+					if(!sectionTarget.empty)
+					{
+						item_found();
+						player.playerThink(false);
+					}
+				}
+
+				else
+				{
+					section_request(sectionTarget.respond.D);
+				}
+
+				activated = true;
+			}
+
+			break;
+		}
+
+		case "L":
+		{
+			if(sectionTarget.respond.L !== "none")
+			{
+				activated = true;
+
+				player.playerDirection('B');
+
+				section_request(sectionTarget.respond.L);
+			}
+
+			break;
+		}
+
+		case "R":
+		{
+			if(sectionTarget.respond.R !== "none")
+			{
+				activated = true;
+
+				player.playerDirection('F');
+
+				section_request(sectionTarget.respond.R);
+			}
+
+			break;
+		}
+	}
+
 
 	if(keyInput)
 	{

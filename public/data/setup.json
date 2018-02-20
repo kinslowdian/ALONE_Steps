@@ -22,11 +22,11 @@
 					"isAnItem": false, 
 					"item_ref": "none", 
 					"devVis": "#333", 
-					"repsond": 
+					"respond": 
 					{
-						"U": false,
-						"D": false,
-						"L": false,
+						"U": "none",
+						"D": "none",
+						"L": "none",
 						"R": 4
 					}
 				},
@@ -38,10 +38,10 @@
 					"isAnItem": false, 
 					"item_ref": "none", 
 					"devVis": "#333",
-					"repsond":
+					"respond":
 					{
-						"U": false,
-						"D": false,
+						"U": "none",
+						"D": "none",
 						"L": 4,
 						"R": 2
 					}
@@ -54,10 +54,10 @@
 					"isAnItem": false, 
 					"item_ref": "none", 
 					"devVis": "#333",
-					"repsond":
+					"respond":
 					{
-						"U": false,
-						"D": false,
+						"U": "none",
+						"D": "none",
 						"L": 1,
 						"R": 3
 					}
@@ -70,12 +70,12 @@
 					"isAnItem": false, 
 					"item_ref": "none", 
 					"devVis": "#333",
-					"repsond":
+					"respond":
 					{
-						"U": false,
-						"D": false,
+						"U": "none",
+						"D": "none",
 						"L": 2,
-						"R": false
+						"R": "none"
 					}
 				},
 				
@@ -86,9 +86,9 @@
 					"isAnItem": true, 
 					"item_ref": 0, 
 					"devVis": "none",
-					"repsond":
+					"respond":
 					{
-						"U": false,
+						"U": "none",
 						"D": true,
 						"L": 0,
 						"R": 1
