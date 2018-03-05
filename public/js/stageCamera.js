@@ -410,7 +410,8 @@ function item_destroy()
 	itemFocus = null;
 	sectionsARR[sectionFocus].isAnItem = false;
 	sectionsARR[sectionFocus].item_ref = "none";
-	sectionsARR[sectionFocus].empty = true;	
+	sectionsARR[sectionFocus].empty = true;
+	sectionsARR[sectionFocus].respond.D = "none";	
 }
 
 function message_item_new(props)
