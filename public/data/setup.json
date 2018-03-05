@@ -21,7 +21,8 @@
 					"y": 415, 
 					"isAnItem": false, 
 					"item_ref": "none", 
-					"devVis": "#333", 
+					"devVis": "#333",
+					"ignore": false, 
 					"respond": 
 					{
 						"U": "none",
@@ -38,6 +39,7 @@
 					"isAnItem": false, 
 					"item_ref": "none", 
 					"devVis": "#333",
+					"ignore": false,
 					"respond":
 					{
 						"U": "none",
@@ -54,6 +56,7 @@
 					"isAnItem": false, 
 					"item_ref": "none", 
 					"devVis": "#333",
+					"ignore": false,
 					"respond":
 					{
 						"U": "none",
@@ -70,6 +73,7 @@
 					"isAnItem": false, 
 					"item_ref": "none", 
 					"devVis": "#333",
+					"ignore": false,
 					"respond":
 					{
 						"U": "none",
@@ -86,6 +90,7 @@
 					"isAnItem": true, 
 					"item_ref": 0, 
 					"devVis": "none",
+					"ignore": false,
 					"respond":
 					{
 						"U": "none",

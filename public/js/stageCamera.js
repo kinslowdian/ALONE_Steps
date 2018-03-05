@@ -107,6 +107,7 @@ class Section
 		this.htmlBuild = "";
 		this.classBuild = 'section' + this.num;
 		this.item_ref = props.item_ref;
+		this.ignore = props.ignore;
 		this.respond = props.respond;
 
 		trace(props);
@@ -411,6 +412,7 @@ function item_destroy()
 	sectionsARR[sectionFocus].isAnItem = false;
 	sectionsARR[sectionFocus].item_ref = "none";
 	sectionsARR[sectionFocus].empty = true;
+	sectionsARR[sectionFocus].ignore = true;
 	sectionsARR[sectionFocus].respond.D = "none";	
 }
 
@@ -639,6 +641,11 @@ function ui_path(direction, keyInput)
 		{
 			if(sectionTarget.respond.U !== "none")
 			{
+				if(sectionsARR[sectionTarget.respond.U] != undefined && sectionsARR[sectionTarget.respond.U].ignore)
+				{
+					alert("HERE");
+				}
+
 				activated = true;
 
 				section_request(sectionTarget.respond.U);
@@ -651,6 +658,11 @@ function ui_path(direction, keyInput)
 		{
 			if(sectionTarget.respond.D !== "none")
 			{
+				if(sectionsARR[sectionTarget.respond.D] != undefined && sectionsARR[sectionTarget.respond.D].ignore)
+				{
+					alert("HERE");
+				}
+
 				if(sectionTarget.respond.D === true)
 				{
 					// ITEM
@@ -674,8 +686,13 @@ function ui_path(direction, keyInput)
 
 		case "L":
 		{
-			if(sectionTarget.respond.L !== "none")
+			if(sectionsARR[sectionTarget.respond.L] != undefined && sectionTarget.respond.L !== "none")
 			{
+				if(sectionsARR[sectionTarget.respond.L].ignore)
+				{
+					alert("HERE");
+				}
+
 				activated = true;
 
 				player.playerDirection('B');
@@ -690,6 +707,11 @@ function ui_path(direction, keyInput)
 		{
 			if(sectionTarget.respond.R !== "none")
 			{
+				if(sectionsARR[sectionTarget.respond.R] != undefined && sectionsARR[sectionTarget.respond.R].ignore)
+				{
+					alert("HERE");
+				}
+
 				activated = true;
 
 				player.playerDirection('F');
