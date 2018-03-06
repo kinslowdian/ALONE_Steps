@@ -643,12 +643,15 @@ function ui_path(direction, keyInput)
 			{
 				if(sectionsARR[sectionTarget.respond.U] != undefined && sectionsARR[sectionTarget.respond.U].ignore)
 				{
-					alert("HERE");
+					section_request(sectionsARR[sectionTarget.respond.U].respond.U);
+				}
+
+				else
+				{
+					section_request(sectionTarget.respond.U);
 				}
 
 				activated = true;
-
-				section_request(sectionTarget.respond.U);
 			}
 
 			break;
@@ -658,11 +661,6 @@ function ui_path(direction, keyInput)
 		{
 			if(sectionTarget.respond.D !== "none")
 			{
-				if(sectionsARR[sectionTarget.respond.D] != undefined && sectionsARR[sectionTarget.respond.D].ignore)
-				{
-					alert("HERE");
-				}
-
 				if(sectionTarget.respond.D === true)
 				{
 					// ITEM
@@ -671,6 +669,11 @@ function ui_path(direction, keyInput)
 						item_found();
 						player.playerThink(false);
 					}
+				}
+
+				else if(sectionsARR[sectionTarget.respond.D] != undefined && sectionsARR[sectionTarget.respond.D].ignore)
+				{
+					section_request(sectionsARR[sectionTarget.respond.D].respond.D);
 				}
 
 				else
@@ -690,14 +693,17 @@ function ui_path(direction, keyInput)
 			{
 				if(sectionsARR[sectionTarget.respond.L].ignore)
 				{
-					alert("HERE");
+					section_request(sectionsARR[sectionTarget.respond.L].respond.L);
+				}
+
+				else
+				{
+					section_request(sectionTarget.respond.L);
 				}
 
 				activated = true;
 
 				player.playerDirection('B');
-
-				section_request(sectionTarget.respond.L);
 			}
 
 			break;
@@ -709,14 +715,17 @@ function ui_path(direction, keyInput)
 			{
 				if(sectionsARR[sectionTarget.respond.R] != undefined && sectionsARR[sectionTarget.respond.R].ignore)
 				{
-					alert("HERE");
+					section_request(sectionsARR[sectionTarget.respond.R].respond.R);
+				}
+
+				else
+				{
+					section_request(sectionTarget.respond.R);
 				}
 
 				activated = true;
 
 				player.playerDirection('F');
-
-				section_request(sectionTarget.respond.R);
 			}
 
 			break;
