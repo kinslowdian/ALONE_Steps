@@ -548,9 +548,6 @@ function ui_init()
 
 function ui_required()
 {
-	// STRING IF STATEMENT IN JSON READ WITH eval();
-	// eval(system.data.LEVELS[level].ui_required);
-
 	let sectionTarget = sectionsARR[sectionFocus];
 
 	if(sectionTarget.respond.U !== "none")
@@ -629,9 +626,6 @@ function ui_required()
 function ui_path(direction, keyInput)
 {
 	let activated = false;
-
-	// STRING IF STATEMENT IN JSON READ WITH eval();
-	// eval(system.data.LEVELS[level].ui_path);
 
 	let sectionTarget = sectionsARR[sectionFocus];
 
